@@ -21,9 +21,20 @@ public class StudentsSceneController {
     @FXML
     private Label nameLabel;
 
+ /*   private void refresh(){
+        nameLabel.setText(model.getStudent().getName());
+    }*/
+
+    @FXML
+    void changeData(ActionEvent event) {
+        model.getStudent().setName("Tom Smith");
+      //  refresh();
+    }
+
     @FXML
     void loadData(ActionEvent event) {
-        nameLabel.setText(model.getStudent().getName());
+      //  refresh();
+        nameLabel.textProperty().bind(model.getStudent().nameProperty());
         creditsLabel.setText("" + model.getStudent().getCredits());
         dateOfBirthLabel.setText(model.getStudent().getDateOfBirth().toString());
     }
